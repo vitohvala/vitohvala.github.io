@@ -14,13 +14,13 @@
     let reg = /^echo/g;
     //let term_in = document.createElement('div');
    function isUpKey(event) {
-        if (event.keyCode === 38 || event.key === 'ArrowUp') {
+        if (event.keyCode === 38) {
             return true;
         }
         return false;
     }   
     function isDownKey(event) {
-        if (event.keyCode === 39 || event.key === 'ArrowDown') {
+        if (event.keyCode === 40) {
             return true;
         }
         return false;
