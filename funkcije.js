@@ -52,7 +52,7 @@ function _fortune(){
     input.value = '';
 }
 function _cowsay(){
-    inputValue = input.value.replace(/^cowsay/g, '');
+    //inputValue = input.value.replace(/^cowsay/g, '');
     term_in = document.createElement('div');
     let okolo = document.createElement('div');
     let quote = document.createElement('p');
@@ -63,7 +63,8 @@ function _cowsay(){
     if(input.value.match(/\| fortune/g)){
         quote.innerHTML = _fortune();
     }
-    else quote.innerHTML = inputValue;
+    else quote.innerHTML = input.value.replace(/^cowsay/, '');
+	console.log(inputValue.innerHTML);
     krava.innerHTML = cowsay;
     krava.className = 'zapravo_krava';
     okolo.appendChild(quote);
