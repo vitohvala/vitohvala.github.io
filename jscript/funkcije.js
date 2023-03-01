@@ -8,8 +8,8 @@ function spusti(term_in){
         zagrade[i].style.color = nizB[i];
         term_in.appendChild(zagrade[i]);
     }
-    //term_pre.appendChild(PS1);
-    inputValue.innerHTML = _input.value;
+    let temp_val = input.value;
+    inputValue.innerHTML = temp_val.replace(/\s/g, '&nbsp;');
     inputValue.style.color = "white";
     inputValue.className = 'prosli';
     term_in.appendChild(inputValue);
@@ -36,45 +36,64 @@ function _clear(){
     input.value = '';
     console.clear();
 }
-function _fortune(){
+function _fortune() {
     term_in = document.createElement('div');
-    _output = document.createElement("p");
-    var rand_index = Math.floor(Math.random() * quotes.length);;
-    var q = quotes[rand_index];
-    if(!(input.value.match(/cowsay/g))){
-        spusti(term_in);
-        _output.innerHTML = q;
-        term_in.appendChild(_output);
-        term_pre.appendChild(term_in);
+    let reg_cow = (/fortune\ *\|{1}\ *cowsay/g);
+    let sem = 0;
+    if (input.value.match(reg_cow)) {
+        sem = 1;
     }
-    else return q;
-   // console.log(q);
-    input.value = '';
-}
-function _cowsay(){
-    //inputValue = input.value.replace(/^cowsay/g, '');
-    term_in = document.createElement('div');
-    let okolo = document.createElement('div');
-    let quote = document.createElement('p');
-    let krava = document.createElement('label');
-    okolo.className = 'cow';
-    //console.log(inputValue);
     spusti(term_in);
-    if(input.value.match(/\| fortune/g)){
-        quote.innerHTML = _fortune();
-    }
-    else quote.innerHTML = input.value.replace(/^cowsay/, '');
-	console.log(inputValue.innerHTML);
-    krava.innerHTML = cowsay;
-    krava.className = 'zapravo_krava';
+    fetch('https://type.fit/api/quotes')
+        .then(response => response.json())
+        .then(data => {
+            const randomIndex = Math.floor(Math.random() * data.length);
+            const selectedQuote = data[randomIndex];
+            if (sem == 1) {
+                const okolo = document.createElement('div');
+                const quote = document.createElement('p');
+                const cowASCII = document.getElementById("cow_ASCII").textContent;
+                let drugakrava = document.createElement("pre");
+                drugakrava.textContent = cowASCII;
+                okolo.className = 'cow';
+                quote.innerHTML = selectedQuote.text;
+                drugakrava.className = "cowsay_asciiart";
+                okolo.appendChild(quote);
+                term_in.appendChild(okolo);
+                term_in.appendChild(drugakrava);
+                term_pre.appendChild(term_in);
+
+            } else {
+                _output = document.createElement('p');
+                _output.innerHTML = selectedQuote.text;
+                term_in.appendChild(_output);
+                term_pre.appendChild(term_in);
+            }
+        })
+        .catch(error => console.error(error));
+    input.value = '';
+    //focus();
+}
+
+function _cowsay() {
+    term_in = document.createElement('div');
+    const okolo = document.createElement('div');
+    const quote = document.createElement('p');
+    const cowASCII = document.getElementById("cow_ASCII").textContent;
+    let drugakrava = document.createElement("pre");
+    drugakrava.textContent = cowASCII;
+    okolo.className = 'cow';
+    drugakrava.className = "cowsay_asciiart";
+    spusti(term_in);
+    quote.innerHTML = input.value.replace(/^cowsay/, '');
+    //cowASCII.style.display = "block";
     okolo.appendChild(quote);
     term_in.appendChild(okolo);
-    term_in.appendChild(krava);
+    term_in.appendChild(drugakrava);
     term_pre.appendChild(term_in);
-
-
     input.value = '';
 }
+
 function _echo() {
     term_in = document.createElement('div');
     _output = document.createElement("p");

@@ -2,13 +2,31 @@
 <html>
 <head>
   <title>Terminal</title>
-  <script src="quotes.js"></script>
-  <script src="funkcije.js"></script>
+  <script src="jscript/quotes.js"></script>
+  <script src="jscript/funkcije.js"></script>
+    <script src="jscript/focus.js"></script>
   <link rel="stylesheet" href="style.css">
+  <style>
+
+    #cow_ASCII{
+        display: none;
+        color:white;
+    }
+  </style>
 </head>
 <body>
-    <div id="term_pre"  ></div>
+    <div id="term_pre"  >
+
+    </div>
+
     <div id="terminal">
+        <pre id="cow_ASCII">
+     \   ^__^
+      \  (oo)\_______
+         (__)\       )\/\
+             ||----w |
+             ||     ||
+        </pre>
         <!-- The terminal will be populated with output and input elements -->
         <label for="" class="zagrade">[</label>
         <label for="" class="guest">guest</label>
@@ -18,7 +36,6 @@
         <label for="" id="znak">$</label>
         <input type="text" id="input" autofocus>
     </div>
-    <script src="focus.js"></script>
-    <script src="script.js"></script>
+    <script src="jscript/script.js"></script>
 </body>
 </html>
