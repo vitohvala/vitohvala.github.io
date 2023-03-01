@@ -1,5 +1,4 @@
 function spusti(term_in){
-    //term_in = document.createElement('div');
 
     inputValue = document.createElement("label");
     for(let i = 0; i < nizK.length; i++){

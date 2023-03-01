@@ -1,11 +1,10 @@
-// Get a reference to the terminal div
 const terminal = document.getElementById('terminal');
 let _output;
 let _input = document.getElementById("input");
 _input.value = '';
 let nizK = ["[ ", "guest ", "@ ", "vitalis ", "] ", "$ "];
 let nizB = [ "#D75F5F", "#FFAF5F", "#D75F5F", "#85AFD7", "#D75F5F", "white"];
-let nizhelp = ['help', 'echo', 'printf','clear', 'whoami', 'fortune', 'cowsay', 'cowsay | fortune', 'contact', 'socijala', 'guthib'];
+let nizhelp = ['help', 'echo', 'printf','clear', 'whoami', 'fortune', 'cowsay', 'fortune | cowsay', 'contact', 'socijala', 'guthib'];
 let nizhelpA = ['Print this menu', 'echo something', 'printf something to console', 'clear the screen', 'about me', 'get random quote', 
     'print something in cowsay style', 'pipe fortune into cowsay', "my email", 'Social media', 'my github page'];
 let inputValue, term_pre = document.getElementById("term_pre"), 
@@ -39,7 +38,6 @@ function postaviProsli(kako){
         let temp_kom = document.getElementsByClassName('prosli')[i - 1].innerHTML;
         prosle_komande[i] = temp_kom.replaceAll('&nbsp;', ' ');
     }
-    //console.log(prosle_komande[len - zz]);
     input.setSelectionRange(input.value.length, input.value.length);
     input.focus();
     input.value = prosle_komande[zz];
@@ -59,9 +57,6 @@ document.addEventListener('keydown', function(event) {
 });
 document.addEventListener("keypress", function(event) {
     if (event.charCode === 13) {
-        //console.log("radi");
-        // temp = _input.value;
-        // _input.value = '';
         input.scrollIntoView();
         if(input.value == 'whoami') _whoami();
         else if(input.value == 'clear') _clear();
@@ -74,6 +69,4 @@ document.addEventListener("keypress", function(event) {
         else if(input.value == 'guthib') _kontakt('My github profile', 'https://github.com/HvalaVitalisu')
         else greska();
     }
-    //if(isUpKey(event)) postaviProsli();
-
 });
