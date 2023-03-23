@@ -2,10 +2,7 @@
     margin: 0;
     padding: 0;
     background-color: #121212;
-}
-body {
-    width: 100vw;
-    height: 100vh;
+    box-sizing: border-box;
 }
 .zagrade,
 a{
@@ -30,7 +27,7 @@ label,
   /*  font-family: 'Courier New', Courier, monospace;*/
     color: white;
     border: none;
-    width: 70%;
+    width: 40%;
     font-size: 16px;
 }
 #input:focus {
@@ -60,4 +57,22 @@ label,
     display: none;
     color:white;
 }
-
+.Helpmenu,
+.StaRadi{
+    letter-spacing: 0.05em;
+    line-height: 1.2em;
+}
+.Helpmenu{ 
+    color: #FFAF5F;
+    text-shadow: 0 0 5px  #FFAF5F;
+    margin-left: 5px;
+    display: inline-block;
+    width: 15%;
+    text-align: left;
+}
+.StaRadi {
+    color: #ebdbb2;
+}
+#Prikaz_na_pocetku {
+    color: #83a598;
+}

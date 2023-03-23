@@ -16,23 +16,31 @@ function spusti(term_in){
 }
 function _help(){
     let hel = new Array(nizhelp.length);
+    let dvadva = new Array(nizhelp.length);
     term_in = document.createElement('div');
     let temmp = document.createElement('label');
     spusti(term_in);
     temmp.innerHTML = '<br>';
     term_in.appendChild(temmp);
     for(let i = 0; i < hel.length; i++){
-        hel[i] = document.createElement("label");
-        hel[i].innerHTML = nizhelp[i] + ' &nbsp &nbsp -- &nbsp &nbsp' + nizhelpA[i] + '<br>';
-        hel[i].style.color = 'white';
-        term_in.appendChild(hel[i]);
+        hel[i] = document.createElement("span");
+        hel[i].innerHTML = nizhelp[i];
+        hel[i].className = 'Helpmenu';
+        dvadva[i] = document.createElement("p");
+        dvadva[i].appendChild(hel[i]);
+        dvadva[i].innerHTML += nizhelpA[i];
+        dvadva[i].className = 'StaRadi';
+        term_in.appendChild(dvadva[i]);
     }
     term_pre.appendChild(term_in);
     input.value = '';
 }
 function _clear(){
+    let asciipocetak = document.getElementById('Prikaz_na_pocetku');
     term_pre.innerHTML = '';
+    asciipocetak.innerHTML = '';
     input.value = '';
+
     console.clear();
 }
 function _fortune() {

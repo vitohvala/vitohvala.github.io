@@ -57,7 +57,19 @@ document.addEventListener('keydown', function(event) {
 });
 document.addEventListener("keypress", function(event) {
     if (event.charCode === 13) {
-        input.scrollIntoView();
+        setInterval(function() {
+            var scrollHeight = Math.max(
+                document.documentElement.scrollHeight,
+                document.body.scrollHeight
+            );
+            var scrollTop = Math.max(
+                document.documentElement.scrollTop,
+                document.body.scrollTop
+            );
+            if (scrollTop + window.innerHeight < scrollHeight) {
+                window.scrollBy(0, 500);
+            }
+        }, 100);
         if(input.value == 'whoami') _whoami();
         else if(input.value == 'clear') _clear();
         else if(input.value.match(reg) || input.value.match('printf')) _echo();
