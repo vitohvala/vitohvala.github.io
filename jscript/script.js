@@ -28,19 +28,13 @@ function postaviProsli(kako){
     if(kako == 'plus')
         zz++;
     else zz--;
-    let len = document.querySelectorAll('#term_pre .prosli').length;
-    if(zz > len) zz = 0;
-    if (zz < 0) zz = len;
-    let prosle_komande = new Array(len);
+    let len = nizkomandi.length;
+    if(zz > len - 1) zz = 0;
+    if (zz < 0) zz = len - 1;
     //console.log(pro);
-    prosle_komande[0] = '';
-    for(let i = 1; i <= len; i++){
-        let temp_kom = document.getElementsByClassName('prosli')[i - 1].innerHTML;
-        prosle_komande[i] = temp_kom.replaceAll('&nbsp;', ' ');
-    }
     input.setSelectionRange(input.value.length, input.value.length);
     input.focus();
-    input.value = prosle_komande[zz];
+    input.value = nizkomandi[zz];
     //spusti();
 
 }

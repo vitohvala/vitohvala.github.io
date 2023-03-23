@@ -1,4 +1,8 @@
+let nizkomandi = [];
+nizkomandi[0] = '';
 function spusti(term_in){
+    
+    nizkomandi[nizkomandi.length] = input.value;
 
     inputValue = document.createElement("label");
     for(let i = 0; i < nizK.length; i++){
@@ -158,8 +162,8 @@ function vratiNakonJ(){
     term_pre.style.display = 'block';
     asciipocetak.style.display = 'block'
     ekran.style.display = 'none';
-    ekran.innerHTML = '';
-
+    input.focus();
+    input.value = '';
 }
 function pisiK(){
     let ekran = document.getElementById('jmatrix');
@@ -175,7 +179,7 @@ function pisiK(){
     }
 
     ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillRect(0, 0, ekran.width, ekran.height);
 
     ctx.fillStyle = "#0F0";
     ctx.font = fontSize + "px monospace";
@@ -200,11 +204,11 @@ function jmatrix(){
     term_pre.style.display = 'none';
     asciipocetak.style.display = 'none';
 
-    setInterval(pisiK, 20);
+    let inter = setInterval(pisiK, 20);
     document.addEventListener("keydown", function(event) {
         if (event.key === "q") {
+            clearInterval(inter);
             vratiNakonJ();
-            return;
         }
     });
 
