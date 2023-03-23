@@ -79,7 +79,7 @@ function _fortune() {
         })
         .catch(error => console.error(error));
     input.value = '';
-    //focus();
+    input.focus();
 }
 
 function _cowsay() {
@@ -99,6 +99,7 @@ function _cowsay() {
     term_in.appendChild(drugakrava);
     term_pre.appendChild(term_in);
     input.value = '';
+    input.focus;
 }
 
 function _echo() {
@@ -148,4 +149,63 @@ function _kontakt(naziv_linka, link){
     term_in.appendChild(_output);
     term_pre.appendChild(term_in);
     input.value = '';
+}
+function vratiNakonJ(){
+    let asciipocetak = document.getElementById('Prikaz_na_pocetku');
+
+    let ekran = document.getElementById('jmatrix');
+    terminal.style.display = 'block';
+    term_pre.style.display = 'block';
+    asciipocetak.style.display = 'block'
+    ekran.style.display = 'none';
+    ekran.innerHTML = '';
+
+}
+function pisiK(){
+    let ekran = document.getElementById('jmatrix');
+    ekran.style.display = 'block';
+    let karakteri = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    let kolone = [];
+    var fontSize = 5;
+    var ctx = ekran.getContext("2d");
+    var brkol = ekran.width / fontSize;
+
+    for (var i = 0; i < brkol; i++) {
+        kolone[i] = Math.floor(Math.random() * ekran.height);
+    }
+
+    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = "#0F0";
+    ctx.font = fontSize + "px monospace";
+
+
+    for (var i = 0; i < brkol; i++) {
+        var char = karakteri[Math.floor(Math.random() * karakteri.length)];
+        ctx.fillText(char, i * fontSize, kolone[i] * fontSize);
+        kolone[i]++;
+        if (kolone[i] * fontSize > ekran.height && Math.random() > 0.975) {
+            kolone[i] = 0;
+        }
+    }
+
+}
+function jmatrix(){
+    let term_in = document.createElement('div');
+    spusti(term_in);
+    term_pre.appendChild(term_in);
+    let asciipocetak = document.getElementById('Prikaz_na_pocetku');
+    terminal.style.display = 'none';
+    term_pre.style.display = 'none';
+    asciipocetak.style.display = 'none';
+
+    setInterval(pisiK, 20);
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "q") {
+            vratiNakonJ();
+            return;
+        }
+    });
+
 }

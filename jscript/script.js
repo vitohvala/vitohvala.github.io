@@ -4,9 +4,9 @@ let _input = document.getElementById("input");
 _input.value = '';
 let nizK = ["[ ", "guest ", "@ ", "vitalis ", "] ", "$ "];
 let nizB = [ "#D75F5F", "#FFAF5F", "#D75F5F", "#85AFD7", "#D75F5F", "white"];
-let nizhelp = ['help', 'echo', 'printf','clear', 'whoami', 'fortune', 'cowsay', 'fortune | cowsay', 'contact', 'socijala', 'guthib'];
+let nizhelp = ['help', 'echo', 'printf','clear', 'whoami', 'fortune', 'cowsay', 'fortune | cowsay', 'contact', 'socijala', 'guthib', 'jmatrix'];
 let nizhelpA = ['Print this menu', 'echo something', 'printf something to console', 'clear the screen', 'about me', 'get random quote', 
-    'print something in cowsay style', 'pipe fortune into cowsay', "my email", 'Social media', 'my github page'];
+    'print something in cowsay style', 'pipe fortune into cowsay', "my email", 'Social media', 'my github page', 'kinda like cmatrix'];
 let inputValue, term_pre = document.getElementById("term_pre"), 
     zagrade = new Array(4);
 let zz = -1;
@@ -57,19 +57,6 @@ document.addEventListener('keydown', function(event) {
 });
 document.addEventListener("keypress", function(event) {
     if (event.charCode === 13) {
-        setInterval(function() {
-            var scrollHeight = Math.max(
-                document.documentElement.scrollHeight,
-                document.body.scrollHeight
-            );
-            var scrollTop = Math.max(
-                document.documentElement.scrollTop,
-                document.body.scrollTop
-            );
-            if (scrollTop + window.innerHeight < scrollHeight) {
-                window.scrollBy(0, 500);
-            }
-        }, 100);
         if(input.value == 'whoami') _whoami();
         else if(input.value == 'clear') _clear();
         else if(input.value.match(reg) || input.value.match('printf')) _echo();
@@ -79,6 +66,9 @@ document.addEventListener("keypress", function(event) {
         else if(input.value.match(/contact/)) _kontakt("Contact me!(don't)" ,'mailto:hvalavitalisu@gmail.com');
         else if(input.value == 'socijala') _kontakt('My instagram', 'https://www.instagram.com/v1tohvala');
         else if(input.value == 'guthib') _kontakt('My github profile', 'https://github.com/HvalaVitalisu')
+        else if(input.value.match(/jmatrix/)) jmatrix();
         else greska();
+        input.focus;
+        shouldScroll = true;
     }
 });
