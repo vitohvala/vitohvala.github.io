@@ -9,11 +9,12 @@ function spusti(term_in){
         zagrade[i] = document.createElement("label");
         zagrade[i].innerHTML = nizK[i];
         zagrade[i].style.color = nizB[i];
+        zagrade[i].className = 'PS1-prosli';
         term_in.appendChild(zagrade[i]);
     }
     let temp_val = input.value;
     inputValue.innerHTML = temp_val.replace(/\s/g, '&nbsp;');
-    inputValue.style.color = "white";
+    inputValue.style.color = "#83a598";
     inputValue.className = 'prosli';
     term_in.appendChild(inputValue);
     term_pre.appendChild(term_in);

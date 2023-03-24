@@ -1,8 +1,17 @@
 *{
     margin: 0;
     padding: 0;
-    background-color: #121212;
+    background-color: #282828;
     box-sizing: border-box;
+}
+a{
+    font-family: 'Teko', sans-serif;
+    font-size: 20px;
+}
+#dobrodoslica {
+    margin-left: 10px;
+    color: #83a598;
+    text-shadow: 0 0 5px  #83a598;
 }
 .zagrade,
 a{
@@ -16,31 +25,32 @@ a{
 }
 label,
 #input
-{ 
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+{
+    /*font-family: Verdana, Geneva, Tahoma, sans-serif;*/
+    font-family: 'Teko', sans-serif;
+    border: none;
+    font-size: 22px;
+    color: #83a598;
+    letter-spacing: 0.07em;
 }
 p{
     color: #ebdbb2;
+    font-family: 'Teko', sans-serif;
+    font-size: 20px;
 }
-label,
-#input{
-  /*  font-family: 'Courier New', Courier, monospace;*/
-    color: white;
-    border: none;
-    width: 40%;
-    font-size: 16px;
-}
+
 #input:focus {
     outline: none;
 }
 #znak{
-    color: #ebdbb2;
+    color: white;
 }
 #terminal,
 #term_pre{
     margin-left: 10px;
 }
 #terminal{
+    overflow: hidden;
     margin-bottom: 5px;
 }
 .cow{
@@ -63,8 +73,8 @@ label,
     line-height: 1.2em;
 }
 .Helpmenu{ 
-    color: #FFAF5F;
-    text-shadow: 0 0 5px  #FFAF5F;
+    color: #83a598;
+    text-shadow: 0 0 5px  #83a598;
     margin-left: 5px;
     display: inline-block;
     width: 15%;
@@ -81,3 +91,8 @@ label,
     height: 100%;
     display: none;
 }
+::selection {
+    background-color: #83a598;
+    color: #121212;
+}
+

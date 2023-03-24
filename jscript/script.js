@@ -2,7 +2,7 @@ const terminal = document.getElementById('terminal');
 let _output;
 let _input = document.getElementById("input");
 _input.value = '';
-let nizK = ["[ ", "guest ", "@ ", "vitalis ", "] ", "$ "];
+let nizK = ["[", "guest", "@", "vitalis","]", "$ "];
 let nizB = [ "#D75F5F", "#FFAF5F", "#D75F5F", "#85AFD7", "#D75F5F", "white"];
 let nizhelp = ['help', 'echo', 'printf','clear', 'whoami', 'fortune', 'cowsay', 'fortune | cowsay', 'contact', 'socijala', 'guthib', 'jmatrix'];
 let nizhelpA = ['Print this menu', 'echo something', 'printf something to console', 'clear the screen', 'about me', 'get random quote', 
@@ -11,7 +11,6 @@ let inputValue, term_pre = document.getElementById("term_pre"),
     zagrade = new Array(4);
 let zz = -1;
 let reg = /^echo/g;
-//let term_in = document.createElement('div');
 function isUpKey(event) {
     if (event.keyCode === 38) {
         return true;
@@ -66,8 +65,8 @@ document.addEventListener("keypress", function(event) {
         shouldScroll = true;
     }
 });
-document.addEventListener('click', function(event) {
-  if (event.target !== input) {
+document.addEventListener('keydown', function(event) {
+  if (!(event.ctrlKey && (event.key === 'c' || event.key === 'v'))) {
     input.focus();
   }
 });
