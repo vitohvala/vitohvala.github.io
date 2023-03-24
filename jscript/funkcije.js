@@ -162,7 +162,9 @@ function vratiNakonJ(){
     let asciipocetak = document.getElementById('Prikaz_na_pocetku');
 
     let ekran = document.getElementById('jmatrix');
+    let Napoleon = document.getElementById('dobrodoslica');
     terminal.style.display = 'block';
+    Napoleon.style.display = 'block';
     term_pre.style.display = 'block';
     asciipocetak.style.display = 'block'
     ekran.style.display = 'none';
@@ -204,9 +206,11 @@ function jmatrix(){
     spusti(term_in);
     term_pre.appendChild(term_in);
     let asciipocetak = document.getElementById('Prikaz_na_pocetku');
+    let Napoleon = document.getElementById('dobrodoslica');
     terminal.style.display = 'none';
     term_pre.style.display = 'none';
     asciipocetak.style.display = 'none';
+    Napoleon.style.display = 'none';
 
     let inter = setInterval(pisiK, 20);
     document.addEventListener("keydown", function(event) {
