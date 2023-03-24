@@ -3,6 +3,7 @@
     padding: 0;
     background-color: #282828;
     box-sizing: border-box;
+    max-width: 100%;
 }
 a{
     font-family: 'Teko', sans-serif;
@@ -23,6 +24,10 @@ a{
 .host{
     color: #85AFD7;
 }
+#input{
+    width: 90%;
+}
+
 label,
 #input
 {
@@ -37,6 +42,7 @@ p{
     color: #ebdbb2;
     font-family: 'Teko', sans-serif;
     font-size: 20px;
+    word-wrap: break-word;
 }
 
 #input:focus {
@@ -54,10 +60,19 @@ p{
     margin-bottom: 5px;
 }
 .cow{
+    display: inline-block;
     margin-top: 10px;
     border: dashed #83a598;
-    width: 50vw;
+    max-width: 50%;
     text-align: center;
+}
+.prosli{
+    word-wrap: break-word;
+}
+.cow p{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
 }
 .cowsay_asciiart{
     margin-top: 5px;

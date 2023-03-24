@@ -14,6 +14,7 @@ function spusti(term_in){
     }
     let temp_val = input.value;
     inputValue.innerHTML = temp_val.replace(/\s/g, '&nbsp;');
+    if (input.value.match(/cowsay/g)) inputValue.innerHTML += '<br>';
     inputValue.style.color = "#83a598";
     inputValue.className = 'prosli';
     term_in.appendChild(inputValue);
