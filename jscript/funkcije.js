@@ -46,6 +46,8 @@ function _clear(){
     term_pre.innerHTML = '';
     asciipocetak.innerHTML = '';
     input.value = '';
+    let dobrodoslica = document.getElementById('dobrodoslica');
+    dobrodoslica.style.display = 'none';
 
     console.clear();
 }

@@ -51,14 +51,14 @@ document.addEventListener('keydown', function(event) {
 document.addEventListener("keypress", function(event) {
     if (event.charCode === 13) {
         if(input.value == 'whoami') _whoami();
-        else if(input.value == 'clear') _clear();
-        else if(input.value.match(reg) || input.value.match('printf')) _echo();
-        else if(input.value == 'help') _help();
-        else if(input.value.match(/^\ *cowsay/g)) _cowsay();
-        else if(input.value.match(/fortune/g)) _fortune();
+        else if(input.value.match(/clear/)) _clear();
+        else if(input.value.match(reg) || input.value.match(/printf/)) _echo();
+        else if(input.value.match(/^\ *help/)) _help();
+        else if(input.value.match(/^\ *cowsay/)) _cowsay();
+        else if(input.value.match(/^\ *fortune/)) _fortune();
         else if(input.value.match(/contact/)) _kontakt("Contact me!(don't)" ,'mailto:hvalavitalisu@gmail.com');
-        else if(input.value == 'socijala') _kontakt('My instagram', 'https://www.instagram.com/v1tohvala');
-        else if(input.value == 'guthib') _kontakt('My github profile', 'https://github.com/HvalaVitalisu')
+        else if(input.value.match(/socijala/)) _kontakt('My instagram', 'https://www.instagram.com/v1tohvala');
+        else if(input.value.match(/guthib/)) _kontakt('My github profile', 'https://github.com/HvalaVitalisu')
         else if(input.value.match(/jmatrix/)) jmatrix();
         else greska();
         input.focus;
