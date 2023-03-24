@@ -66,3 +66,8 @@ document.addEventListener("keypress", function(event) {
         shouldScroll = true;
     }
 });
+document.addEventListener('click', function(event) {
+  if (event.target !== input) {
+    input.focus();
+  }
+});
