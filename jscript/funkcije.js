@@ -41,7 +41,7 @@ function _help(){
     term_pre.appendChild(term_in);
     input.value = '';
 }
-
+let clearkom = false;
 function _clear(){
     clearkom = true;
     let asciipocetak = document.getElementById('Prikaz_na_pocetku');
