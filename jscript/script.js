@@ -1,12 +1,18 @@
 const terminal = document.getElementById('terminal');
 let _output;
 let _input = document.getElementById("input");
+let abm = "ChatGPT wrote this: <br>\
+            Redzovic Iljaz is a Linux user and self-proclaimed 'autistic' enthusiast of the operating system Loonix. <br>\
+            He believes in the suckless philosophy, which emphasizes minimalism and simplicity in software design. <br>\
+            Redzovic is currently a student of Business Informatics at DUNP, and while he is not particularly interested in frontend development,<br>\
+            he recognizes its value(I don't) in creating functional and visually appealing user interfaces for business applications. <br>\
+            Despite his reluctance to write about himself, Redzovic's passion for Linux and minimalist design principles shines through in his work and daily life.";
 _input.value = '';
 let nizK = ["[", "guest", "@", "vitalis","]", "$ "];
 let nizB = [ "#D75F5F", "#FFAF5F", "#D75F5F", "#85AFD7", "#D75F5F", "white"];
-let nizhelp = ['help', 'echo', 'printf','clear', 'whoami', 'fortune', 'cowsay', 'fortune | cowsay', 'contact', 'socijala', 'guthib', 'jmatrix'];
+let nizhelp = ['help', 'echo', 'printf','clear', 'whoami', 'fortune', 'cowsay', 'fortune | cowsay', 'contact', 'socijala', 'guthib', 'jmatrix', 'neofetch'];
 let nizhelpA = ['Print this menu', 'echo something', 'printf something to console', 'clear the screen', 'about me', 'get random quote', 
-    'print something in cowsay style', 'pipe fortune into cowsay', "my email", 'Social media', 'my github page', 'kinda like cmatrix'];
+    'print something in cowsay style', 'pipe fortune into cowsay', "my email", 'Social media', 'my github page', 'kinda like cmatrix', 'More serious "whoami"'];
 let inputValue, term_pre = document.getElementById("term_pre"), 
     zagrade = new Array(4);
 let zz = -1;
@@ -60,13 +66,10 @@ document.addEventListener("keypress", function(event) {
         else if(input.value.match(/socijala/)) _kontakt('My instagram', 'https://www.instagram.com/v1tohvala');
         else if(input.value.match(/guthib/)) _kontakt('My github profile', 'https://github.com/HvalaVitalisu')
         else if(input.value.match(/jmatrix/)) jmatrix();
+        else if(input.value.match(/neofetch/)) _neofetch();
         else greska();
         input.focus;
         shouldScroll = true;
     }
 });
-document.addEventListener('keydown', function(event) {
-  if (!(event.ctrlKey && (event.key === 'c' || event.key === 'v'))) {
-    input.focus();
-  }
-});
+

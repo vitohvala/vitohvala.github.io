@@ -41,7 +41,9 @@ function _help(){
     term_pre.appendChild(term_in);
     input.value = '';
 }
+
 function _clear(){
+    clearkom = true;
     let asciipocetak = document.getElementById('Prikaz_na_pocetku');
     term_pre.innerHTML = '';
     asciipocetak.innerHTML = '';
@@ -109,6 +111,17 @@ function _cowsay() {
     input.value = '';
     input.focus;
 }
+function _neofetch(){
+    term_in = document.createElement('div');
+    spusti(term_in);
+    let neofprehtml = document.getElementById("neofetchh").textContent;
+    let neo = document.createElement('pre');
+    neo.className = "neo";
+    neo.textContent = neofprehtml;
+    term_in.appendChild(neo);
+    term_pre.appendChild(term_in);
+    input.value = '';
+}
 
 function _echo() {
     term_in = document.createElement('div');
@@ -139,9 +152,8 @@ function _whoami(){
     let term_in = document.createElement('div');
     _output = document.createElement("p");
     spusti(term_in);
-    _output.innerHTML = 'ja sam taj';
-    
-    term_in.appendChild(_output);
+    _output.innerHTML = abm; 
+    term_in.appendChild(_output)
     term_pre.appendChild(term_in);
     _input.value = '';
 }
@@ -164,27 +176,33 @@ function vratiNakonJ(){
     let ekran = document.getElementById('jmatrix');
     let Napoleon = document.getElementById('dobrodoslica');
     terminal.style.display = 'block';
-    Napoleon.style.display = 'block';
     term_pre.style.display = 'block';
-    asciipocetak.style.display = 'block'
+    if(clearkom == false){
+        Napoleon.style.display = 'block';
+        asciipocetak.style.display = 'block'
+    }
     ekran.style.display = 'none';
     input.focus();
     input.value = '';
+    input.disabled = false;
 }
+
 function pisiK(){
     let ekran = document.getElementById('jmatrix');
+    ekran.width = window.innerWidth; 
+    ekran.height = window.innerHeight
     ekran.style.display = 'block';
-    let karakteri = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    let karakteri = "@#$%&*_+?ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
     let kolone = [];
-    var fontSize = 5;
+    var fontSize = 25;
     var ctx = ekran.getContext("2d");
-    var brkol = ekran.width / fontSize;
+    var brkol = 500;
 
     for (var i = 0; i < brkol; i++) {
         kolone[i] = Math.floor(Math.random() * ekran.height);
     }
 
-    ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+    ctx.fillStyle = "rgba(0, 0, 0, 1)";
     ctx.fillRect(0, 0, ekran.width, ekran.height);
 
     ctx.fillStyle = "#0F0";
@@ -192,14 +210,13 @@ function pisiK(){
 
 
     for (var i = 0; i < brkol; i++) {
-        var char = karakteri[Math.floor(Math.random() * karakteri.length)];
-        ctx.fillText(char, i * fontSize, kolone[i] * fontSize);
-        kolone[i]++;
-        if (kolone[i] * fontSize > ekran.height && Math.random() > 0.975) {
-            kolone[i] = 0;
+        let char = karakteri[Math.floor(Math.random() * karakteri.length)];
+        ctx.fillText(char, i * fontSize, kolone[i]);
+        kolone[i] += fontSize; 
+        if (kolone[i] > ekran.height && Math.random() > 0.975) {
+          kolone[i] = Math.floor(Math.random() * -ekran.height);
         }
     }
-
 }
 function jmatrix(){
     let term_in = document.createElement('div');
@@ -211,13 +228,15 @@ function jmatrix(){
     term_pre.style.display = 'none';
     asciipocetak.style.display = 'none';
     Napoleon.style.display = 'none';
+    input.value = '';
+    input.disabled = true;
 
-    let inter = setInterval(pisiK, 20);
+    let inter = setInterval(pisiK, 100);
     document.addEventListener("keydown", function(event) {
         if (event.key === "q") {
             clearInterval(inter);
             vratiNakonJ();
+            input.value = '';
         }
     });
-
 }
