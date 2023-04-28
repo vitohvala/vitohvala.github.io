@@ -10,9 +10,9 @@ let abm = "ChatGPT wrote this: <br>\
 _input.value = '';
 let nizK = ["[", "guest", "@", "vitalis","]", "$ "];
 let nizB = [ "#D75F5F", "#FFAF5F", "#D75F5F", "#85AFD7", "#D75F5F", "white"];
-let nizhelp = ['help', 'echo', 'printf','clear', 'whoami', 'fortune', 'cowsay', 'fortune | cowsay', 'contact', 'socijala', 'guthib', 'jmatrix', 'neofetch'];
+let nizhelp = ['help', 'echo', 'printf','clear', 'whoami', 'fortune', 'cowsay', 'fortune | cowsay', 'contact', 'socijala', 'guthib', 'jmatrix', 'neofetch', "cat"];
 let nizhelpA = ['Print this menu', 'echo something', 'printf something to console', 'clear the screen', 'about me', 'get random quote', 
-    'print something in cowsay style', 'pipe fortune into cowsay', "my email", 'Social media', 'my github page', 'kinda like cmatrix', 'More serious "whoami"'];
+    'print something in cowsay style', 'pipe fortune into cowsay', "my email", 'Social media', 'my github page', 'kinda like cmatrix', 'More serious "whoami"', 'not saying'];
 let inputValue, term_pre = document.getElementById("term_pre"), 
     zagrade = new Array(4);
 let zz = -1;
@@ -67,6 +67,7 @@ document.addEventListener("keypress", function(event) {
         else if(input.value.match(/guthib/)) _kontakt('My github profile', 'https://github.com/HvalaVitalisu')
         else if(input.value.match(/jmatrix/)) jmatrix();
         else if(input.value.match(/neofetch/)) _neofetch();
+        else if(input.value.match(/cat/)) _cat();
         else greska();
         input.focus;
         shouldScroll = true;

@@ -240,3 +240,16 @@ function jmatrix(){
         }
     });
 }
+function _cat(){
+    let term_in = document.createElement('div');
+    spusti(term_in);
+    var catimg = document.createElement("img");
+    catimg.src = "img/cat().jpeg";
+    catimg.width = 250;
+    catimg.height = 175;
+    let temp = document.createElement('br');
+    term_in.appendChild(temp);
+    term_in.appendChild(catimg);
+    term_pre.appendChild(term_in);    
+    input.value = '';
+}
