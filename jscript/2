@@ -150,11 +150,12 @@ function greska(){
             break;
         }
     }
-    spusti(term_in);   
-    if(!(input.value.match(/^\ *$/))){
+    
+    if(!(input.value.match(/^\ *$/)));
         _output.innerHTML = "command not found: "  + input.value;
-        term_in.appendChild(_output);
-    }
+    spusti(term_in);
+
+    term_in.appendChild(_output);
     if(checkT)
         term_in.appendChild(_output2);
     term_pre.appendChild(term_in);

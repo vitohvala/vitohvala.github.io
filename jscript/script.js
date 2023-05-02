@@ -16,7 +16,7 @@ let nizhelpA = ['Print this menu', 'echo something', 'printf something to consol
 let inputValue, term_pre = document.getElementById("term_pre"), 
     zagrade = new Array(4);
 let zz = -1;
-let reg = /^echo/g;
+let reg = /^\ *echo/g;
 function isUpKey(event) {
     if (event.keyCode === 38) {
         return true;
@@ -56,18 +56,18 @@ document.addEventListener('keydown', function(event) {
 });
 document.addEventListener("keypress", function(event) {
     if (event.charCode === 13) {
-        if(input.value == 'whoami') _whoami();
-        else if(input.value.match(/clear/)) _clear();
-        else if(input.value.match(reg) || input.value.match(/printf/)) _echo();
-        else if(input.value.match(/^\ *help/)) _help();
+        if(input.value.match(/^\ *whoami\ *$/)) _whoami();
+        else if(input.value.match(/^\ *clear\ *$/)) _clear();
+        else if(input.value.match(reg) || input.value.match(/^\ *printf/)) _echo();
+        else if(input.value.match(/^(\ *)help\ *$/)) _help();
         else if(input.value.match(/^\ *cowsay/)) _cowsay();
         else if(input.value.match(/^\ *fortune/)) _fortune();
-        else if(input.value.match(/contact/)) _kontakt("Contact me!(don't)" ,'mailto:hvalavitalisu@gmail.com');
-        else if(input.value.match(/socijala/)) _kontakt('My instagram', 'https://www.instagram.com/v1tohvala');
-        else if(input.value.match(/guthib/)) _kontakt('My github profile', 'https://github.com/HvalaVitalisu')
-        else if(input.value.match(/jmatrix/)) jmatrix();
-        else if(input.value.match(/neofetch/)) _neofetch();
-        else if(input.value.match(/cat/)) _cat();
+        else if(input.value.match(/^\ *contact\ *$/)) _kontakt("Contact me!(don't)" ,'mailto:hvalavitalisu@gmail.com');
+        else if(input.value.match(/^\ *socijala\ *$/)) _kontakt('My instagram', 'https://www.instagram.com/v1tohvala');
+        else if(input.value.match(/^\ *guthib\ *$/)) _kontakt('My github profile', 'https://github.com/HvalaVitalisu')
+        else if(input.value.match(/^\ *jmatrix\ *$/)) jmatrix();
+        else if(input.value.match(/^\ *neofetch\ *$/)) _neofetch();
+        else if(input.value.match(/^\ *cat\ *$/)) _cat();
         else greska();
         input.focus;
         shouldScroll = true;
