@@ -182,75 +182,9 @@ function _kontakt(naziv_linka, link){
     term_pre.appendChild(term_in);
     input.value = '';
 }
-function vratiNakonJ(){
-    let asciipocetak = document.getElementById('Prikaz_na_pocetku');
 
-    let ekran = document.getElementById('jmatrix');
-    let Napoleon = document.getElementById('dobrodoslica');
-    terminal.style.display = 'block';
-    term_pre.style.display = 'block';
-    if(clearkom == false){
-        Napoleon.style.display = 'block';
-        asciipocetak.style.display = 'block'
-    }
-    ekran.style.display = 'none';
-    input.focus();
-    input.value = '';
-    input.disabled = false;
-}
-
-function pisiK(){
-    let ekran = document.getElementById('jmatrix');
-    ekran.width = window.innerWidth; 
-    ekran.height = window.innerHeight
-    ekran.style.display = 'block';
-    let karakteri = "@#$%&*_+?ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-    let kolone = [];
-    var fontSize = 25;
-    var ctx = ekran.getContext("2d");
-    var brkol = 500;
-
-    for (var i = 0; i < brkol; i++) {
-        kolone[i] = Math.floor(Math.random() * ekran.height);
-    }
-
-    ctx.fillStyle = "rgba(0, 0, 0, 1)";
-    ctx.fillRect(0, 0, ekran.width, ekran.height);
-
-    ctx.fillStyle = "#0F0";
-    ctx.font = fontSize + "px monospace";
-
-
-    for (var i = 0; i < brkol; i++) {
-        let char = karakteri[Math.floor(Math.random() * karakteri.length)];
-        ctx.fillText(char, i * fontSize, kolone[i]);
-        kolone[i] += fontSize; 
-        if (kolone[i] > ekran.height && Math.random() > 0.975) {
-          kolone[i] = Math.floor(Math.random() * -ekran.height);
-        }
-    }
-}
 function jmatrix(){
-    let term_in = document.createElement('div');
-    spusti(term_in);
-    term_pre.appendChild(term_in);
-    let asciipocetak = document.getElementById('Prikaz_na_pocetku');
-    let Napoleon = document.getElementById('dobrodoslica');
-    terminal.style.display = 'none';
-    term_pre.style.display = 'none';
-    asciipocetak.style.display = 'none';
-    Napoleon.style.display = 'none';
-    input.value = '';
-    input.disabled = true;
 
-    let inter = setInterval(pisiK, 100);
-    document.addEventListener("keydown", function(event) {
-        if (event.key === "q") {
-            clearInterval(inter);
-            vratiNakonJ();
-            input.value = '';
-        }
-    });
 }
 function _cat(){
     let term_in = document.createElement('div');
