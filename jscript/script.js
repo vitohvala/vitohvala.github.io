@@ -71,6 +71,7 @@ document.addEventListener("keypress", function(event) {
         else greska();
         input.focus;
         shouldScroll = true;
+        zz = -1;
     }
 });
 
